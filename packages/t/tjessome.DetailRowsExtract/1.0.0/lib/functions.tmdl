@@ -20,7 +20,7 @@ annotation DAXLIB_PackageVersion = 1.0.0
 /// @param filter5 Optional filter table.
 /// @returns A table containing the detail rows of the specified measure
 
-function Extract_DetailRows =
+function ExtractDetailRows =
     (
       targetMeasure : MEASUREREF,
       filter1 : TABLE EXPR = NoFilter(),
