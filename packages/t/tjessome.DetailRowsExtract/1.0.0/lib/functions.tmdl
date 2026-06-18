@@ -2,13 +2,25 @@
 /// Returns a single-row table with a Boolean TRUE value.
 /// Used as the default for optional filter parameters in Extract_DetailRows.
 /// When a filter argument is omitted, this function supplies a neutral filter.
+/// @returns A table with a single row containing TRUE.
 function NoFilter =
     () =>
       ROW( "__NoFilter", TRUE )
 
+annotation DAXLIB_PackageId = tjessome.DetailRowsExtract
+annotation DAXLIB_PackageVersion = 1.0.0
+
 /// Returns the detail rows expression for a measure.
 /// Accepts up to five optional filter arguments, each as a table expression.
 /// Each filter defaults to NoFilter(), which applies no filtering when omitted.
+/// @param targetMeasure The measure whose DETAILROWS expression is evaluated.
+/// @param filter1 Optional filter table.
+/// @param filter2 Optional filter table.
+/// @param filter3 Optional filter table.
+/// @param filter4 Optional filter table.
+/// @param filter5 Optional filter table.
+/// @returns A table containing the detail rows of the specified measure
+
 function Extract_DetailRows =
     (
       targetMeasure : MEASUREREF,
@@ -26,3 +38,6 @@ function Extract_DetailRows =
         filter4,
         filter5
       )
+
+annotation DAXLIB_PackageId = tjessome.DetailRowsExtract
+annotation DAXLIB_PackageVersion = 1.0.0
