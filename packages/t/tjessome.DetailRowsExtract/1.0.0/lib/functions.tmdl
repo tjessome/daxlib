@@ -1,0 +1,28 @@
+
+/// Returns a single-row table with a Boolean TRUE value.
+/// Used as the default for optional filter parameters in Extract_DetailRows.
+/// When a filter argument is omitted, this function supplies a neutral filter.
+function NoFilter =
+    () =>
+      ROW( "__NoFilter", TRUE )
+
+/// Returns the detail rows expression for a measure.
+/// Accepts up to five optional filter arguments, each as a table expression.
+/// Each filter defaults to NoFilter(), which applies no filtering when omitted.
+function Extract_DetailRows =
+    (
+      targetMeasure : MEASUREREF,
+      filter1 : TABLE EXPR = NoFilter(),
+      filter2 : TABLE EXPR = NoFilter(),
+      filter3 : TABLE EXPR = NoFilter(),
+      filter4 : TABLE EXPR = NoFilter(),
+      filter5 : TABLE EXPR = NoFilter()
+    ) =>
+      CALCULATETABLE(
+        DETAILROWS( targetMeasure ),
+        filter1,
+        filter2,
+        filter3,
+        filter4,
+        filter5
+      )
